@@ -1,0 +1,12 @@
+###
+# PING
+GET http://localhost:3030/app/menu
+
+###
+# CREATE MENU
+POST http://localhost:3030/app/menu
+Content-Type: application/json
+
+{
+    "name":"Roles"
+}
