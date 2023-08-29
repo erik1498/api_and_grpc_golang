@@ -8,11 +8,20 @@ import (
 	"context"
 	"os"
 	"runtime"
+	"sync"
+
+	pb "api_and_grpc_golang/proto/trail"
 
 	"github.com/gofiber/fiber/v2"
 	"go.uber.org/fx"
 	"gorm.io/gorm"
 )
+
+type trailDataServer struct {
+	pb.UnimplementedDataTrailServer
+	mu     sync.Mutex
+	trails []*pb.Trail
+}
 
 func main() {
 	fx.New(

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "api_and_grpc_golang/trail";
+package trail;
+
+service DataTrail {
+    rpc CreateTrail(Trail) returns (Trail);
+}
+
+message Trail {
+    string name = 1;
+}
